@@ -1,0 +1,111 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import React, { useRef } from "react";
+import img1 from "../assets/1.jpg";
+import img2 from "../assets/2.jpg";
+import img3 from "../assets/3.jpg";
+import img4 from "../assets/4.jpg";
+import img5 from "../assets/5.jpg";
+import img6 from "../assets/6.jpg";
+import img7 from "../assets/7.jpg";
+import img8 from "../assets/8.jpg";
+import img9 from "../assets/9.jpg";
+import img10 from "../assets/10.jpg";
+import img11 from "../assets/11.jpg";
+import img12 from "../assets/12.jpg";
+import img13 from "../assets/13.jpg";
+import img14 from "../assets/14.jpg";
+
+const Agences = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const imgDivRef = useRef(null);
+  const imgRef = useRef(null);
+
+  const imgArray = [
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+    img12,
+    img13,
+    img14,
+  ];
+
+  useGSAP(() => {
+    gsap.to(imgDivRef.current, {
+      scrollTrigger: {
+        trigger: imgDivRef.current,
+        start: "top 21.5%",
+        end: "top -100%",
+        pin: true,
+        pinSpacing: true,
+        // pinReparent: true,
+        pintype: "transform",
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+
+        onUpdate: (elem) => {
+          // console.log(elem.progress * imgArray.length);
+          // console.log(imgRef.current.src);
+          let imgIndex;
+          if (elem.progress < 1) {
+            imgIndex = Math.floor(elem.progress * imgArray.length);
+          } else {
+            imgIndex = imgArray.length - 1;
+          }
+          imgRef.current.src = imgArray[imgIndex];
+        },
+      },
+    });
+  });
+
+  return (
+    <div>
+      <div className="section1 py-1">
+        <div
+          ref={imgDivRef}
+          className="absolute h-[20vw] w-[15vw] rounded-3xl top-40 left-[30vw] overflow-hidden"
+        >
+          <img
+            ref={imgRef}
+            className="h-full w-full object-cover"
+            src={img1}
+            alt=""
+          />
+        </div>
+        <div className="relative font-[font2]">
+          <div className="mt-[50vh]">
+            <h1 className="text-[19vw] text-center leading-[18vw] uppercase">
+              Soixan7e <br />
+              Douze
+            </h1>
+          </div>
+          <div className="pl-[40%] ">
+            <p className="text-5xl ">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Notre curiosité nourrit notre créativité. On reste humbles et on
+              dit non aux gros egos, même le vôtre. Une marque est vivante. Elle
+              a des valeurs, une personnalité, une histoire. Si on oublie ça, on
+              peut faire de bons chiffres à court terme, mais on la tue à long
+              terme. C'est pour ça qu'on s'engage à donner de la perspective,
+              pour bâtir des marques influentes.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="section2 h-screen"></div>
+    </div>
+  );
+};
+
+export default Agences;
