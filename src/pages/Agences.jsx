@@ -2,20 +2,20 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React, { useRef } from "react";
-import img1 from "../assets/1.jpg";
-import img2 from "../assets/2.jpg";
-import img3 from "../assets/3.jpg";
-import img4 from "../assets/4.jpg";
-import img5 from "../assets/5.jpg";
-import img6 from "../assets/6.jpg";
-import img7 from "../assets/7.jpg";
-import img8 from "../assets/8.jpg";
-import img9 from "../assets/9.jpg";
-import img10 from "../assets/10.jpg";
-import img11 from "../assets/11.jpg";
-import img12 from "../assets/12.jpg";
-import img13 from "../assets/13.jpg";
-import img14 from "../assets/14.jpg";
+import img1 from "../assets/Agence-images/1.jpg";
+import img2 from "../assets/Agence-images/2.jpg";
+import img3 from "../assets/Agence-images/3.jpg";
+import img4 from "../assets/Agence-images/4.jpg";
+import img5 from "../assets/Agence-images/5.jpg";
+import img6 from "../assets/Agence-images/6.jpg";
+import img7 from "../assets/Agence-images/7.jpg";
+import img8 from "../assets/Agence-images/8.jpg";
+import img9 from "../assets/Agence-images/9.jpg";
+import img10 from "../assets/Agence-images/10.jpg";
+import img11 from "../assets/Agence-images/11.jpg";
+import img12 from "../assets/Agence-images/12.jpg";
+import img13 from "../assets/Agence-images/13.jpg";
+import img14 from "../assets/Agence-images/14.jpg";
 
 const Agences = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -44,12 +44,12 @@ const Agences = () => {
     gsap.to(imgDivRef.current, {
       scrollTrigger: {
         trigger: imgDivRef.current,
-        start: "top 21.5%",
-        end: "top -100%",
+        start: "top -40%",
+        end: "top -180%",
         pin: true,
         pinSpacing: true,
-        // pinReparent: true,
-        pintype: "transform",
+        pinReparent: true,
+        pinType: "transform",
         scrub: 1,
         anticipatePin: 1,
         invalidateOnRefresh: true,
@@ -71,10 +71,10 @@ const Agences = () => {
 
   return (
     <div>
-      <div className="section1 py-1">
+      <div className="section1 py-1 ">
         <div
           ref={imgDivRef}
-          className="absolute h-[20vw] w-[15vw] rounded-3xl top-40 left-[30vw] overflow-hidden"
+          className="absolute h-[20vw] w-[15vw] rounded-3xl top-40 left-[30vw] overflow-hidden bg-red-500"
         >
           <img
             ref={imgRef}
