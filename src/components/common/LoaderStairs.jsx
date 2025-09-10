@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const LoaderStairs = (props) => {
   const curentPath = useLocation().pathname;
-  console.log(curentPath);
+  // console.log(curentPath);
 
   const loaderStairsParent = useRef(null);
   const pageRef = useRef(null);

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import Img1 from "../../assets/Nav-images/fullNav-1.jpg";
 import Img2 from "../../assets/Nav-images/fullNav-2.jpg";
 import Img3 from "../../assets/Nav-images/fullNav-3.jpg";
@@ -8,43 +8,98 @@ import Img6 from "../../assets/Nav-images/fullNav-6.png";
 import hert from "../../assets/Nav-images/heart.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { NavbarContext } from "../../context/NavContext";
 
 const FullScreenNav = () => {
   const fullNavLinksRef = useRef(null);
+  const fullScreenRef = useRef(null);
 
-  useGSAP(() => {
+  const [navOpen, setNavOpen] = useContext(NavbarContext);
+
+  function gsapAnimation() {
     const tl = gsap.timeline();
+    tl.to(".fullScreenNav", {
+      display: "block",
+    });
 
-    tl.from(".loader-stairs", {
-      delay: 1,
-      height: 0,
+    tl.to(".loader-stairings", {
+      // delay: 0.2,
+      height: "100%",
       stagger: {
-        amount: -1,
+        amount: -0.3,
       },
     });
-    tl.from(fullNavLinksRef.current, {
-      opacity: 0,
+    tl.to(".links", {
+      opacity: 1,
+      rotateX: 0,
+      stagger: {
+        amount: 0.3,
+      },
     });
-  });
+    tl.fromTo(
+      ".navLinks",
+      { opacity: 0, y: -30 },
+      { opacity: 1, y: 0 },
+      "+=0.1" // delay after links
+    );
+  }
+
+  function gsapAnimationReverse() {
+    const tl = gsap.timeline();
+    tl.to(".navLinks", {
+      opacity: 0,
+      y: -30,
+      // duration: 0.4,
+      // ease: "power2.in",
+    });
+    tl.to(".links", {
+      opacity: 0,
+      rotateX: 90,
+      stagger: {
+        amount: 0.1,
+      },
+    });
+    tl.to(".loader-stairings", {
+      height: 0,
+      stagger: {
+        amount: 0.1,
+      },
+    });
+
+    tl.to(".fullScreenNav", {
+      display: "none",
+    });
+  }
+
+  useGSAP(
+    function () {
+      if (navOpen) {
+        gsapAnimation();
+      } else {
+        gsapAnimationReverse();
+      }
+    },
+    [navOpen]
+  );
 
   return (
     <div
       id="fullScreenNav"
-      className="text-white h-screen w-full absolute overflow-hidden"
+      ref={fullScreenRef}
+      className="fullScreenNav hidden text-white h-screen w-full absolute overflow-hidden z-50"
     >
-      <div className="h-screen w-full fixed">
-        <div className="h-full w-full flex ">
-          <div className="loader-stairs h-full w-1/6 bg-red-500"></div>
-          <div className="loader-stairs h-full w-1/6 bg-red-500"></div>
-          <div className="loader-stairs h-full w-1/6 bg-red-500"></div>
-          <div className="loader-stairs h-full w-1/6 bg-red-500"></div>
-          <div className="loader-stairs h-full w-1/6 bg-red-500"></div>
-          <div className="loader-stairs h-full w-1/6 bg-red-500"></div>
+      <div id="loader" className="h-screen w-full fixed">
+        <div className="h-screen w-full flex ">
+          <div className="loader-stairings h-full w-1/5 bg-black"></div>
+          <div className="loader-stairings h-full w-1/5 bg-black"></div>
+          <div className="loader-stairings h-full w-1/5 bg-black"></div>
+          <div className="loader-stairings h-full w-1/5 bg-black"></div>
+          <div className="loader-stairings h-full w-1/5 bg-black"></div>
         </div>
       </div>
-      <div ref={fullNavLinksRef} className="relative">
-        <div className="fixed flex w-full justify-between p-4 items-start">
-          <div className="">
+      <div id="all-links-div" ref={fullNavLinksRef} className="relative">
+        <div className=" navLinks fixed flex w-full justify-between p-4 items-start">
+          <div className="cursor-pointer ">
             <div className=" w-30 ">
               <svg
                 className=" w-full text-white"
@@ -59,13 +114,21 @@ const FullScreenNav = () => {
               </svg>
             </div>
           </div>
-          <div className="h-28 w-28 relative cursor-pointer">
+          <div
+            onClick={() => {
+              setNavOpen(false);
+            }}
+            className="h-28 w-28 relative cursor-pointer"
+          >
             <div className=" h-40 w-0.5 bg-white absolute -rotate-45 origin-top"></div>
             <div className=" h-40 w-0.5 bg-white absolute right-0 rotate-45 origin-top"></div>
           </div>
         </div>
-        <div id="all-links" className="py-40">
-          <div id="links" className=" link relative border-t-1 border-white">
+        <div id="all-links" className=" py-40">
+          <div
+            id="links"
+            className=" links relative origin-top border-t-1 border-white"
+          >
             <h1 className="font-[font2] text-[8vw] uppercase text-center leading-[0.8] pt-3.5">
               projects
             </h1>
@@ -108,7 +171,10 @@ const FullScreenNav = () => {
               </div>
             </div>
           </div>
-          <div id="links" className=" link relative border-t-1 border-white">
+          <div
+            id="links"
+            className=" links relative origin-top border-t-1 border-white"
+          >
             <h1 className="font-[font2] text-[8vw] uppercase text-center leading-[0.8] pt-3.5">
               agence
             </h1>
@@ -151,7 +217,10 @@ const FullScreenNav = () => {
               </div>
             </div>
           </div>
-          <div id="links" className=" link relative border-t-1 border-white">
+          <div
+            id="links"
+            className=" links relative origin-top border-t-1 border-white"
+          >
             <h1 className="font-[font2] text-[8vw] uppercase text-center leading-[0.8] pt-3.5">
               contact
             </h1>
@@ -183,11 +252,17 @@ const FullScreenNav = () => {
               </div>
             </div>
           </div>
-          <div id="links" className=" link relative border-y-1 border-white">
+          <div
+            id="links"
+            className=" links relative origin-top border-y-1 border-white"
+          >
             <h1 className="font-[font2] text-[8vw] uppercase text-center leading-[0.8] pt-3.5">
               blogue
             </h1>
-            <div className="moveLink absolute flex top-0 text-black bg-[#D3FD50]">
+            <div
+              id="top-section"
+              className="moveLink absolute flex top-0 text-black bg-[#D3FD50]"
+            >
               <div className="moveX flex items-center ">
                 <h2 className="whitespace-nowrap font-[font2] text-[8vw] uppercase text-center leading-[0.8] pt-3.5">
                   lire les articles

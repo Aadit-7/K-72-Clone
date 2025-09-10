@@ -9,12 +9,12 @@ const App = () => {
   return (
     <div>
       <FullScreenNav />
-      {/* <NavBar /> */}
-      {/* <Routes>
+      <NavBar />
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/agences" element={<Agences />} />
-      </Routes> */}
+      </Routes>
     </div>
   );
 };
