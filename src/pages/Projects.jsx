@@ -49,16 +49,16 @@ const Projects = () => {
   });
 
   return (
-    <div className="p-4">
-      <div className=" pt-[40vh]">
-        <h2 className="uppercase font-[font2] text-[12vw] tracking-wider">
+    <div className="lg:p-4 p-2">
+      <div className=" lg:pt-[40vh] pt-40">
+        <h2 className="uppercase font-[font2] text-[12vw] lg:tracking-wider pb-2">
           projets
         </h2>
       </div>
-      <div className="-mt-18 lol">
+      <div className="lg:-mt-18 lol">
         {projectsImages.map((elem, idx) => {
           return (
-            <div key={idx} className="hero w-full h-[570px] mb-3 flex gap-3">
+            <div key={idx} className="hero lg:w-full w-full lg:h-[570px] mb-3 lg:flex gap-3 ">
               <ProjecrCard img1={elem.img1} img2={elem.img2} />
             </div>
           );

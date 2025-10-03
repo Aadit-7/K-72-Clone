@@ -74,7 +74,7 @@ const Agences = () => {
       <div className="section1 py-1 ">
         <div
           ref={imgDivRef}
-          className="absolute h-[20vw] w-[15vw] rounded-3xl top-40 left-[30vw] overflow-hidden bg-red-500"
+          className="absolute lg:h-[20vw] h-30 lg:w-[15vw] w-20 lg:rounded-3xl rounded-xl lg:top-40 top-22 lg:left-[30vw] left-20 overflow-hidden bg-red-500"
         >
           <img
             ref={imgRef}
@@ -84,14 +84,14 @@ const Agences = () => {
           />
         </div>
         <div className="relative font-[font2]">
-          <div className="mt-[50vh]">
-            <h1 className="text-[19vw] text-center leading-[18vw] uppercase">
+          <div className="lg:mt-[50vh] mt-40">
+            <h1 className="lg:text-[19vw] text-7xl text-center leading-[18vw] uppercase">
               Soixan7e <br />
               Douze
             </h1>
           </div>
-          <div className="pl-[40%] ">
-            <p className="text-5xl ">
+          <div className="lg:pl-[40%] pl-30 lg:pt-0 pt-14 ">
+            <p className="lg:text-5xl text-sm ">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               Notre curiosité nourrit notre créativité. On reste humbles et on
               dit non aux gros egos, même le vôtre. Une marque est vivante. Elle
