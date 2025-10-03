@@ -1,12 +1,35 @@
-# React + Vite
+# K-72 Clone – Animated Creative Agency Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![K-72 Clone Screenshot](https://k-72-clone.onrender.com/)
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Explore the live version here: [k-72-clone.onrender.com](https://k-72-clone.onrender.com/)
 
-## Expanding the ESLint configuration
+## 📌 Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+K-72 Clone is a visually immersive and fully responsive creative agency website inspired by the award-winning K72 design. Built with React, GSAP, TailwindCSS, and Vite, this project replicates the original's smooth animations, video backgrounds, and modern aesthetics. It showcases proficiency in front-end development, animation integration, and responsive design principles.
+
+## ⚙️ Tech Stack
+
+- **React** – Component-based UI development
+- **GSAP** – High-performance animations
+- **TailwindCSS** – Utility-first styling
+- **Vite** – Fast development & bundling
+
+## ✨ Features
+
+- ⚡ Immersive video background with autoplay/loop
+- GSAP animations for smooth entrance and scroll effects
+- Responsive design across devices
+- Dynamic typography and layout
+- Creative agency-style showcase
+- Optimized performance with Vite
+
+## 🛠️ Setup & Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Aadit-7/K-72-Clone.git
+cd K-72-Clone
