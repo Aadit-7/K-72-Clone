@@ -74,7 +74,7 @@ const Agences = () => {
       <div className="section1 py-1 ">
         <div
           ref={imgDivRef}
-          className="absolute lg:h-[20vw] h-30 lg:w-[15vw] w-20 lg:rounded-3xl rounded-xl lg:top-40 top-22 lg:left-[30vw] left-20 overflow-hidden bg-red-500"
+          className="absolute lg:h-[20vw] h-30 lg:w-[15vw] w-20 lg:rounded-3xl rounded-xl lg:top-40 top-22 lg:left-[30vw] left-20 overflow-hidden "
         >
           <img
             ref={imgRef}
