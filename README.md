@@ -1,7 +1,5 @@
 # K-72 Clone – Animated Creative Agency Website
 
-![K-72 Clone Screenshot](https://k-72-clone.onrender.com/)
-
 ## 🚀 Live Demo
 
 Explore the live version here: [k-72-clone.onrender.com](https://k-72-clone.onrender.com/)
